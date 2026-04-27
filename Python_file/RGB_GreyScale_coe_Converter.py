@@ -4,8 +4,8 @@ import numpy as np
 # =========================
 # CONFIGURATION
 # =========================
-INPUT_IMAGE = INPUT_IMAGE = r"C:\Users\utkarsh\Desktop\UT\DSD_Project\Hardware-Implementation-of-Sobel-Edge-Detection-on-FPGA\Python_file\test_images.jpg"     # your image path
-OUTPUT_COE = "fpga_image.coe"
+INPUT_IMAGE = INPUT_IMAGE = r"C:\Users\utkarsh\Desktop\UT\DSD_Project\Hardware-Implementation-of-Sobel-Edge-Detection-on-FPGA\Python_file\Lenna.png"     # your image path
+OUTPUT_COE = "fpga3_image.coe"
 SIZE = (256, 256)            # FPGA-friendly size
 
 # =========================
