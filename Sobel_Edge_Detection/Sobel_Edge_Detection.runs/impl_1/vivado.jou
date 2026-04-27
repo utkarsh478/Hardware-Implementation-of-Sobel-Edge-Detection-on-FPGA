@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Mon Apr 27 11:32:49 2026
+# Process ID: 9592
+# Current directory: C:/Users/utkarsh/Desktop/UT/DSD_Project/Sobel_Edge_Detection/Sobel_Edge_Detection.runs/impl_1
+# Command line: vivado.exe -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
+# Log file: C:/Users/utkarsh/Desktop/UT/DSD_Project/Sobel_Edge_Detection/Sobel_Edge_Detection.runs/impl_1/top.vdi
+# Journal file: C:/Users/utkarsh/Desktop/UT/DSD_Project/Sobel_Edge_Detection/Sobel_Edge_Detection.runs/impl_1\vivado.jou
+# Running On        :LAPTOP-E67LTRBF
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26200
+# Processor Detail  :12th Gen Intel(R) Core(TM) i5-12500H
+# CPU Frequency     :3110 MHz
+# CPU Physical cores:12
+# CPU Logical cores :16
+# Host memory       :16782 MB
+# Swap memory       :5637 MB
+# Total Virtual     :22419 MB
+# Available Virtual :9718 MB
+#-----------------------------------------------------------
+source top.tcl -notrace
