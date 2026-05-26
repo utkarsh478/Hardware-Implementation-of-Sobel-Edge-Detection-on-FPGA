@@ -5,6 +5,40 @@
 
 ---
 
+# 📸 Output Preview
+
+## Original Image vs Sobel Edge Output
+
+| Original Image | Edge Detected Output |
+|---|---|
+| ![Original](images/original_lena.png) | ![Edge Output](images/sobel_lena_output.png) |
+
+---
+
+## Scene Image vs Edge Output
+
+| Original Scene | Edge Detected Scene |
+|---|---|
+| ![Scene](images/scene_original.png) | ![Scene Edge](images/scene_edge_output.png) |
+
+---
+
+## 🖼️ Example Outputs
+
+### Lena Image
+<p align="center">
+  <img src="images/original_lena.png" width="300">
+  <img src="images/sobel_lena_output.png" width="300">
+</p>
+
+### Nature Scene
+<p align="center">
+  <img src="images/scene_original.png" width="300">
+  <img src="images/scene_edge_output.png" width="300">
+</p>
+
+---
+
 ## 📌 Overview
 
 This project implements a **Sobel Edge Detection system on FPGA** using Verilog HDL. The system processes a grayscale image stored in on-chip memory (BRAM) and displays the edge-detected output on a VGA monitor.
@@ -36,15 +70,19 @@ Unlike software-based approaches, this design performs **parallel hardware compu
 ## 🧠 Important Concepts Used
 
 ### 🔹 Real-Time Processing
-Real-time means the system processes and displays data **immediately as it is being read**, without noticeable delay.  
+
+Real-time means the system processes and displays data **immediately as it is being read**, without noticeable delay.
+
 In this project, once the pipeline is filled, the FPGA processes **one pixel per clock cycle**, and the output is displayed continuously on the VGA screen.
 
 ---
 
 ### 🔹 Streaming Dataflow (Hardware Perspective)
+
 Streaming means data flows **continuously through different modules** without storing the entire image.
 
 In this design:
+
 - Pixels are read sequentially from BRAM  
 - Passed through line buffer → Sobel → VGA  
 - Each module processes data and forwards it instantly  
@@ -62,9 +100,11 @@ The system consists of the following major components:
 - **Sobel Module** → Computes edges  
 - **VGA Controller** → Displays output  
 
-### Data Flow:
+### Data Flow
 
+```text
 BRAM → Pixel Register → Line Buffer → Sobel → VGA Output
+```
 
 ---
 
@@ -96,11 +136,13 @@ After initial delay, the system continuously processes pixels and displays resul
 
 ## 🛠️ Tools & Technologies
 
-- FPGA Board: Nexys 4 DDR (Artix-7)  
-- Software: Xilinx Vivado 2023.2  
-- Language: Verilog HDL  
-- Python: OpenCV, NumPy  
-- Display: VGA  
+| Component | Details |
+|---|---|
+| FPGA Board | Nexys 4 DDR (Artix-7) |
+| Software | Xilinx Vivado 2023.2 |
+| HDL | Verilog |
+| Python Libraries | OpenCV, NumPy |
+| Display Interface | VGA |
 
 ---
 
@@ -109,41 +151,66 @@ After initial delay, the system continuously processes pixels and displays resul
 Before loading into FPGA:
 
 - Convert image to grayscale  
-- Resize to 256×256  
-- Convert to COE file for BRAM  
+- Resize image to 256×256  
+- Convert image into COE format  
+- Load COE into BRAM IP  
 
 ---
 
 ## ▶️ How to Run
 
-1. Open Vivado and create project for Nexys 4 DDR  
-2. Add Verilog source files  
-3. Add constraint (.xdc) file  
-4. Generate BRAM IP and load COE file  
-5. Run synthesis and implementation  
-6. Generate bitstream  
-7. Program FPGA  
-8. Connect VGA monitor and observe output  
+### 1️⃣ Create Vivado Project
+
+- Open Vivado  
+- Select Nexys 4 DDR board  
+
+### 2️⃣ Add Source Files
+
+- Add Verilog modules  
+- Add XDC constraints  
+
+### 3️⃣ Configure BRAM
+
+- Generate BRAM IP  
+- Load COE initialization file  
+
+### 4️⃣ Build Project
+
+- Run synthesis  
+- Run implementation  
+- Generate bitstream  
+
+### 5️⃣ Program FPGA
+
+- Connect board  
+- Program FPGA  
+- Connect VGA monitor  
+
+### 6️⃣ Observe Output
+
+Edge-detected image should appear on the VGA display.
 
 ---
 
 ## 📊 Results
 
-- Edge-detected image displayed successfully on VGA  
-- Clear boundary detection  
-- Smooth output without flickering  
-- Correct synchronization between modules  
+✅ Edge-detected image displayed successfully on VGA  
+✅ Clear boundary detection  
+✅ Stable output without flickering  
+✅ Proper synchronization between modules  
 
-The system processes image data continuously and efficiently.
+The FPGA processes image data continuously using streaming architecture.
 
 ---
 
 ## ⚠️ Challenges Faced
 
-- BRAM latency → solved using register stage  
-- Line buffer initialization → handled using valid signals  
-- VGA timing issues → synchronized using pixel clock  
-- Pipeline delay → analyzed using simulation  
+| Problem | Solution |
+|---|---|
+| BRAM latency | Added register stage |
+| Line buffer initialization | Used valid signals |
+| VGA timing mismatch | Synchronized pixel clock |
+| Pipeline delay | Verified using simulation |
 
 ---
 
@@ -152,22 +219,31 @@ The system processes image data continuously and efficiently.
 - Pipeline delay compensation  
 - RGB image support  
 - Canny edge detection  
-- Camera input integration (OV7670)  
-- Higher resolution support  
-- Hardware optimization using AXI-stream  
+- Live camera input (OV7670)  
+- Higher resolution processing  
+- AXI-stream optimization  
 
 ---
 
 ## 📄 Documentation
 
-📘 Final Report included in repository  
+📘 Final project report included in repository.
 
 ---
 
 ## ⭐ Summary
 
-This project demonstrates how FPGA can be used for **high-speed real-time image processing** using a pipelined and streaming architecture. It provides a strong foundation for building advanced hardware-based vision systems.
+This project demonstrates how FPGA can be used for **high-speed real-time image processing** using a pipelined and streaming architecture.
+
+It provides a strong foundation for:
+
+- Hardware acceleration  
+- FPGA-based computer vision  
+- Real-time embedded image processing  
+- Edge AI systems  
 
 ---
 
-⭐ If you found this useful, consider starring the repository!
+## ⭐ Support
+
+If you found this project useful, consider giving the repository a ⭐ on GitHub!
