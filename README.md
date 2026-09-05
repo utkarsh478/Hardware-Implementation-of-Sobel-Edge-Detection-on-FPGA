@@ -225,11 +225,6 @@ The FPGA processes image data continuously using streaming architecture.
 
 ---
 
-## 📄 Documentation
-
-📘 Final project report included in repository.
-
----
 
 ## ⭐ Summary
 
